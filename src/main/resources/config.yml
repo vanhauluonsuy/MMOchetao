@@ -1,0 +1,27 @@
+materials:
+  # Tier 1
+  COPPER_INGOT: { power: 10, quality: 0.8 }
+  COAL_REFINED: { power: 15, quality: 0.85 }
+  IRON_INGOT: { power: 25, quality: 1.0 }
+  # Tier 2
+  GOLD_INGOT: { power: 40, quality: 1.1 }
+  STEEL_INGOT: { power: 60, quality: 1.2 }
+  QUARTZ_INFUSED: { power: 80, quality: 1.25 }
+  # Tier 3
+  TITANIUM_INGOT: { power: 120, quality: 1.4 }
+  TUNGSTEN_INGOT: { power: 160, quality: 1.5 }
+  OBSIDIAN_SHARD: { power: 200, quality: 1.6 }
+  # Tier 4
+  MITHRIL_INGOT: { power: 300, quality: 1.8 }
+  ORICHALCUM_INGOT: { power: 450, quality: 2.0 }
+  DRAGON_SCALE: { power: 600, quality: 2.2 }
+  # Tier 5
+  NETHERITE_INGOT: { power: 800, quality: 2.5 }
+  STARS_FRAGMENT: { power: 1200, quality: 3.0 }
+  ETERNAL_CORE: { power: 2000, quality: 4.0 }
+
+gui-settings:
+  title: "&0⚒ THE FORGE - RÈN TUYỆT TÁC"
+  input-slots: [24, 25, 26]
+  preview-slots: [10, 11, 12, 19, 20, 21]
+  craft-slot: 49

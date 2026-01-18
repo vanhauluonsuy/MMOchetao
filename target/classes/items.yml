@@ -1,0 +1,31 @@
+tiers:
+  # Bộ 1: Tập Sự (Power 0 - 150)
+  tier1:
+    min-power: 0
+    max-power: 150
+    display: "&fTập Sự"
+    items: ["SWORD:BRONZE_SWORD", "AXE:BRONZE_AXE", "CHESTPLATE:BRONZE_CHESTPLATE"]
+  # Bộ 2: Tinh Luyện (Power 151 - 400)
+  tier2:
+    min-power: 151
+    max-power: 400
+    display: "&7Tinh Luyện"
+    items: ["SWORD:IRON_SWORD", "AXE:IRON_AXE", "CHESTPLATE:IRON_CHESTPLATE"]
+  # Bộ 3: Chiến Binh (Power 401 - 1000)
+  tier3:
+    min-power: 401
+    max-power: 1000
+    display: "&bChiến Binh"
+    items: ["SWORD:STEEL_SWORD", "AXE:STEEL_AXE", "CHESTPLATE:STEEL_CHESTPLATE"]
+  # Bộ 4: Huyền Thoại (Power 1001 - 3000)
+  tier4:
+    min-power: 1001
+    max-power: 3000
+    display: "&6Huyền Thoại"
+    items: ["SWORD:MYTHIC_SWORD", "AXE:MYTHIC_AXE", "CHESTPLATE:MYTHIC_CHESTPLATE"]
+  # Bộ 5: Vĩnh Hằng (Power > 3000)
+  tier5:
+    min-power: 3001
+    max-power: 99999
+    display: "&5Vĩnh Hằng"
+    items: ["SWORD:ETERNAL_SWORD", "AXE:ETERNAL_AXE", "CHESTPLATE:ETERNAL_CHESTPLATE"]

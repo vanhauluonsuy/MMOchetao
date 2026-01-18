@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MMochetao">
+    <output-path>$PROJECT_DIR$/out/artifacts/MMochetao</output-path>
+    <root id="archive" name="MMochetao.jar">
+      <element id="module-output" name="MMochetao" />
+    </root>
+  </artifact>
+</component>

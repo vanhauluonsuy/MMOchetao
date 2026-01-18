@@ -1,0 +1,21 @@
+name: MMochetao
+version: '1.0-SNAPSHOT'
+main: me.neyucity.project.mmochetao.MMochetao
+api-version: '1.21'
+description: 'Plugin chế tạo trang bị MMOItems dựa trên chất lượng nguyên liệu - neyucity.com'
+author: 'NeyuCity'
+depend: [ MMOItems, MythicLib, PlaceholderAPI ]
+
+commands:
+  mmochetao:
+    description: "Lệnh chính để mở giao diện nâng cấp hoặc reload plugin."
+    aliases: [mmoc]
+    permission: mmochetao.use
+
+permissions:
+  mmochetao.use:
+    description: "Cho phép sử dụng lệnh /mmochetao để mở GUI."
+    default: true
+  mmochetao.admin:
+    description: "Cho phép reload plugin."
+    default: op
