@@ -1,5 +1,13 @@
 # 🛠️ MMOCheTao – Random MMOItems Crafting Plugin
 
+![Minecraft](https://img.shields.io/badge/Minecraft-1.20+-brightgreen)
+![Paper](https://img.shields.io/badge/Platform-Paper%20%7C%20Spigot-blue)
+![PlaceholderAPI](https://img.shields.io/badge/Dependency-PlaceholderAPI-orange)
+![License](https://img.shields.io/badge/License-Custom-lightgrey)
+![Author](https://img.shields.io/badge/Author-vanhauluonsuy-purple)
+
+---
+
 **Author:** vanhauluonsuy  
 **Minecraft Version:** 1.20+  
 **Plugin Type:** MMOItems Random Crafting  
