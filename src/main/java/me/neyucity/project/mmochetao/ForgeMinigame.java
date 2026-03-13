@@ -10,13 +10,10 @@ import java.util.*;
 public class ForgeMinigame {
     private static final Map<UUID, ForgeMinigame> sessions = new HashMap<>();
 
-    // CẤU HÌNH MINIGAME
     private static final int MAX_ATTEMPTS = 5;
     private static final int TARGET_SLOT = 13;
     private static final int START_SLOT = 10;
     private static final int END_SLOT = 16;
-
-    // TỐC ĐỘ: Số càng lớn càng chậm (2 = Nhanh, 4 = Vừa, 6 = Chậm)
     private static final long SPEED_TICK = 4L;
 
     private final Player player;
@@ -60,15 +57,10 @@ public class ForgeMinigame {
                     return;
                 }
 
-                // Reset đường chạy
                 for (int i = START_SLOT; i <= END_SLOT; i++) {
                     gui.setItem(i, createItem(Material.GRAY_STAINED_GLASS_PANE, "§7Canh búa vào ô xanh lá!"));
                 }
-
-                // Vẽ Target (Mục tiêu)
                 gui.setItem(TARGET_SLOT, createItem(Material.EMERALD_BLOCK, "§a§lHIT ME! §7(Đập vào đây)"));
-
-                // Logic di chuyển con trỏ
                 if (movingRight) {
                     cursor++;
                     if (cursor >= END_SLOT) movingRight = false;
@@ -76,8 +68,6 @@ public class ForgeMinigame {
                     cursor--;
                     if (cursor <= START_SLOT) movingRight = true;
                 }
-
-                // Vẽ con trỏ (Búa)
                 if (cursor == TARGET_SLOT) {
                     gui.setItem(cursor, createItem(Material.GOLD_BLOCK, "§6§lCLICK NGAY!"));
                 } else {
@@ -86,7 +76,7 @@ public class ForgeMinigame {
 
                 player.updateInventory();
             }
-        }.runTaskTimer(MMochetao.getInstance(), 0, SPEED_TICK); // Chạy theo tốc độ đã chỉnh
+        }.runTaskTimer(MMochetao.getInstance(), 0, SPEED_TICK); // 
     }
 
     public void input() {
@@ -96,8 +86,6 @@ public class ForgeMinigame {
         if (isHit) {
             successfulHits++;
             history[currentAttempt] = 1;
-
-            // Hiệu ứng Combo Pitch: Càng trúng liên tiếp, âm thanh càng cao
             float pitch = 1.0f + (successfulHits * 0.2f);
             player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_PLACE, 0.8f, pitch);
             player.sendTitle("§a§lPERFECT!", "§eCombo: " + successfulHits, 0, 10, 5);
@@ -135,11 +123,9 @@ public class ForgeMinigame {
         isFinished = true;
         sessions.remove(player.getUniqueId());
 
-        // Tính Bonus Skill (Max 125%)
         double skillBonus = 0.85 + (successfulHits * 0.08);
 
         if (successfulHits == MAX_ATTEMPTS) {
-            // GODLIKE MOMENT
             player.sendTitle("§6§lGODLIKE FORGING!", "§eTuyệt đối hoàn hảo!", 0, 50, 20);
             player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1f, 1f);
             player.spawnParticle(Particle.TOTEM_OF_UNDYING, player.getLocation().add(0, 1, 0), 30, 0.5, 0.5, 0.5, 0.5);
