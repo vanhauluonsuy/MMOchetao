@@ -17,13 +17,12 @@ public class MMochetao extends JavaPlugin implements TabCompleter {
     @Override
     public void onEnable() {
         instance = this;
-        saveDefaultConfig(); // Lưu config.yml mặc định
-        loadConfigs(); // Tải items.yml
+        saveDefaultConfig(); 
+        loadConfigs(); 
 
         getCommand("mmoc").setExecutor((sender, cmd, label, args) -> {
             if (!(sender instanceof Player p)) return true;
 
-            // Lệnh reload
             if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
                 if (!p.hasPermission("mmochetao.admin")) {
                     p.sendMessage("§cBạn không có quyền!");
