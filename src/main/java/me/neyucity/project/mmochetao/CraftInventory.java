@@ -101,7 +101,7 @@ public class CraftInventory {
 
                     inv.setItem(bar[step], createItem(color, "§c§lĐỘ NÓNG: " + ((step + 1) * 200) + "°C"));
 
-                    // Hiệu ứng âm thanh tăng dần (Rising Pitch)
+                    // Hiệu ứng âm thanh tăng dần 
                     float pitch = 0.5f + ((float)step / bar.length) * 1.5f;
                     p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1f, pitch);
                     p.getWorld().spawnParticle(Particle.FLAME, p.getLocation(), 5, 0.3, 0.3, 0.3, 0.05);
@@ -142,7 +142,7 @@ public class CraftInventory {
                 String[] pts = selected.split(":");
                 String typeName = pts[0].toUpperCase();
 
-                // Tự động sửa lỗi phổ biến: Chestplate -> ARMOR
+                //
                 if (typeName.equals("CHESTPLATE")) typeName = "ARMOR";
 
                 String itemId = pts[1].toUpperCase();
@@ -159,7 +159,7 @@ public class CraftInventory {
                     return;
                 }
 
-                // Scaling Stats
+                // 
                 if (mmo.hasData(ItemStats.ATTACK_DAMAGE)) {
                     double val = ((DoubleData) mmo.getData(ItemStats.ATTACK_DAMAGE)).getValue();
                     mmo.setData(ItemStats.ATTACK_DAMAGE, new DoubleData(val * multiplier));
@@ -184,7 +184,7 @@ public class CraftInventory {
 
                 p.getInventory().addItem(result);
 
-                // HIỆU ỨNG THÀNH CÔNG ROBLOX
+                // 
                 if (multiplier >= 1.2) {
                     p.sendTitle("§6§l★ LEGENDARY ★", "§fHiệu suất: §e" + String.format("%.0f%%", multiplier * 100), 10, 60, 20);
                     p.playSound(p.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 0.5f, 2f);
