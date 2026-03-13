@@ -18,25 +18,22 @@ public class CraftInventoryListener implements Listener {
 
         // 1. MENU CHÍNH
         if (title.contains("THE FORGE")) {
-            // Chặn Shift Click vào slot kính
+           
             if (e.getAction() == InventoryAction.MOVE_TO_OTHER_INVENTORY) {
                 e.setCancelled(true);
                 return;
             }
 
-            // Chỉ cho phép click vào ô Input
             if (e.getRawSlot() < 54 && !isInput(e.getRawSlot()) && e.getRawSlot() != 49) {
                 e.setCancelled(true);
             }
 
-            // Update Preview (Delay 1 tick)
             Bukkit.getScheduler().runTaskLater(MMochetao.getInstance(), () -> {
                 if (p.getOpenInventory().getTopInventory().equals(e.getInventory())) {
                     CraftInventory.updatePreview(e.getInventory());
                 }
             }, 1L);
 
-            // Nút Rèn (Slot 49)
             if (e.getRawSlot() == 49) {
                 e.setCancelled(true);
                 double[] stats = CraftInventory.calculateStats(e.getInventory());
@@ -46,7 +43,6 @@ public class CraftInventoryListener implements Listener {
                     return;
                 }
 
-                // Tiêu thụ nguyên liệu
                 for (int s : CraftInventory.INPUTS) {
                     ItemStack is = e.getInventory().getItem(s);
                     if (is != null && is.getType() != Material.AIR) {
@@ -58,11 +54,9 @@ public class CraftInventoryListener implements Listener {
                     }
                 }
 
-                // Mở Minigame
                 new ForgeMinigame(p, stats[0], stats[1]).start();
             }
         }
-        // 2. MINIGAME
         else if (title.contains("[ ✦ ]")) {
             e.setCancelled(true);
             if (e.getClickedInventory() != null && e.getClickedInventory().equals(e.getView().getTopInventory())) {
@@ -70,13 +64,11 @@ public class CraftInventoryListener implements Listener {
                 if (g != null) g.input();
             }
         }
-        // 3. GIAI ĐOẠN NUNG
         else if (title.contains("ĐANG NUNG")) {
             e.setCancelled(true);
         }
     }
 
-    // Trả đồ khi đóng GUI
     @EventHandler
     public void onClose(InventoryCloseEvent e) {
         if (e.getView().getTitle().contains("THE FORGE")) {
